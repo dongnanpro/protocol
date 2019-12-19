@@ -9,7 +9,7 @@ module.exports = async function(deployer, network, accounts) {
   const controllableTiming = enableControllableTiming(network);
 
   // Set the GAT percentage to 5%
-  const gatPercentage = { rawValue: web3.utils.toWei("0.05", "ether") };
+  const gatPercentage = { rawValue: web3.utils.toWei("0.1", "ether") };
 
   // Set the inflation rate.
   const inflationRate = { rawValue: web3.utils.toWei("0.05", "ether") };
@@ -19,7 +19,7 @@ module.exports = async function(deployer, network, accounts) {
   const finder = await Finder.deployed();
 
   // Set phase length to one day.
-  const secondsPerDay = "86400";
+  const secondsPerDay = "3600";
 
   const { contract: voting } = await deploy(
     deployer,

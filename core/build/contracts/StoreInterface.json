@@ -1,0 +1,954 @@
+{
+  "contractName": "StoreInterface",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "payOracleFees",
+      "outputs": [],
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "erc20Address",
+          "type": "address"
+        }
+      ],
+      "name": "payOracleFeesErc20",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "startTime",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "endTime",
+          "type": "uint256"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "rawValue",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct FixedPoint.Unsigned",
+          "name": "pfc",
+          "type": "tuple"
+        }
+      ],
+      "name": "computeRegularFee",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "rawValue",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct FixedPoint.Unsigned",
+          "name": "regularFee",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "rawValue",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct FixedPoint.Unsigned",
+          "name": "latePenalty",
+          "type": "tuple"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "currency",
+          "type": "address"
+        }
+      ],
+      "name": "computeFinalFee",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "rawValue",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct FixedPoint.Unsigned",
+          "name": "finalFee",
+          "type": "tuple"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.13+commit.5b0b510c\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"currency\",\"type\":\"address\"}],\"name\":\"computeFinalFee\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"rawValue\",\"type\":\"uint256\"}],\"internalType\":\"struct FixedPoint.Unsigned\",\"name\":\"finalFee\",\"type\":\"tuple\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"startTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"endTime\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"uint256\",\"name\":\"rawValue\",\"type\":\"uint256\"}],\"internalType\":\"struct FixedPoint.Unsigned\",\"name\":\"pfc\",\"type\":\"tuple\"}],\"name\":\"computeRegularFee\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"rawValue\",\"type\":\"uint256\"}],\"internalType\":\"struct FixedPoint.Unsigned\",\"name\":\"regularFee\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"uint256\",\"name\":\"rawValue\",\"type\":\"uint256\"}],\"internalType\":\"struct FixedPoint.Unsigned\",\"name\":\"latePenalty\",\"type\":\"tuple\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"payOracleFees\",\"outputs\":[],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"erc20Address\",\"type\":\"address\"}],\"name\":\"payOracleFeesErc20\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{\"computeFinalFee(address)\":{\"details\":\"Computes the final oracle fees that a contract should pay at settlement.\"},\"computeRegularFee(uint256,uint256,(uint256))\":{\"details\":\"Computes the regular oracle fees that a contract should pay for a period.  pfc` is the \\\"profit from corruption\\\", or the maximum amount of margin currency that a token sponsor could extract from the contract through corrupting the price feed in their favor.\"},\"payOracleFees()\":{\"details\":\"Pays Oracle fees in ETH to the store. To be used by contracts whose margin currency is ETH.\"},\"payOracleFeesErc20(address)\":{\"details\":\"Pays oracle fees in the margin currency, erc20Address, to the store. To be used if the margin currency is an ERC20 token rather than ETH> All approved tokens are transfered.\"}},\"title\":\"Interface that allows derivative contracts to pay oracle fees for their use of the system.\"},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/ptare/protocol/core/contracts/StoreInterface.sol\":\"StoreInterface\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/ptare/protocol/core/contracts/FixedPoint.sol\":{\"keccak256\":\"0xf3842a7f226a1d65506a466ecd826ef6a03755c554d16b91971c2cdf475c79af\",\"urls\":[\"bzz-raw://014af134732e0ada11ff54acf1fe5a571f875e1a2e8566b1d96d07bb5d0d188e\",\"dweb:/ipfs/QmUM5XYQ1t5ai2iQzSqerwnuReUdtavxzV5aM86Pdy4TeH\"]},\"/Users/ptare/protocol/core/contracts/StoreInterface.sol\":{\"keccak256\":\"0x8ee360358948cfe8f92d7eaff9e43b9036021142b93daaed8f48c7cc583c86ab\",\"urls\":[\"bzz-raw://fba561545b50328ed68fea2d2b53b5561a4e3b9f8216b3616d7d7f3f7dfdbd73\",\"dweb:/ipfs/Qme3yzk9yr3mxJ8zsWWmJH6LDCKn6DxCVxf2zBVTPLB8Mk\"]},\"@openzeppelin/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x640b6dee7a4b830bdfd52b5031a07fc2b12209f5b2e29e5d364a7d37f69d8076\",\"urls\":[\"bzz-raw://31113152e1ddb78fe7a4197f247591ca894e93f916867beb708d8e747b6cc74f\",\"dweb:/ipfs/QmbZaJyXdpsYGykVhHH9qpVGQg9DGCxE2QufbCUy3daTgq\"]},\"@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0xe5bb0f57cff3e299f360052ba50f1ea0fff046df2be070b6943e0e3c3fdad8a9\",\"urls\":[\"bzz-raw://59fd025151435da35faa8093a5c7a17de02de9d08ad27275c5cdf05050820d91\",\"dweb:/ipfs/QmQMvwEcPhoRXzbXyrdoeRtvLoifUW9Qh7Luho7bmUPRkc\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.5.0;\npragma experimental ABIEncoderV2;\n\nimport \"@openzeppelin/contracts/token/ERC20/IERC20.sol\";\nimport \"./FixedPoint.sol\";\n\n\n/**\n * @title Interface that allows derivative contracts to pay oracle fees for their use of the system.\n */\ninterface StoreInterface {\n\n    /** \n     * @dev Pays Oracle fees in ETH to the store. To be used by contracts whose margin currency is ETH.\n     */\n    function payOracleFees() external payable;\n\n    /**\n     * @dev Pays oracle fees in the margin currency, erc20Address, to the store. To be used if the margin\n     * currency is an ERC20 token rather than ETH> All approved tokens are transfered.\n     */\n    function payOracleFeesErc20(address erc20Address) external; \n\n    /**\n     * @dev Computes the regular oracle fees that a contract should pay for a period. \n     * pfc` is the \"profit from corruption\", or the maximum amount of margin currency that a\n     * token sponsor could extract from the contract through corrupting the price feed\n     * in their favor.\n     */\n    function computeRegularFee(uint startTime, uint endTime, FixedPoint.Unsigned calldata pfc) \n    external view returns (FixedPoint.Unsigned memory regularFee, FixedPoint.Unsigned memory latePenalty);\n    \n    /**\n     * @dev Computes the final oracle fees that a contract should pay at settlement.\n     */\n    function computeFinalFee(address currency) external view returns (FixedPoint.Unsigned memory finalFee);\n}\n",
+  "sourcePath": "/Users/ptare/protocol/core/contracts/StoreInterface.sol",
+  "ast": {
+    "absolutePath": "/Users/ptare/protocol/core/contracts/StoreInterface.sol",
+    "exportedSymbols": {
+      "StoreInterface": [
+        3453
+      ]
+    },
+    "id": 3454,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 3421,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:22"
+      },
+      {
+        "id": 3422,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "24:33:22"
+      },
+      {
+        "absolutePath": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "file": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "id": 3423,
+        "nodeType": "ImportDirective",
+        "scope": 3454,
+        "sourceUnit": 12763,
+        "src": "59:56:22",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/ptare/protocol/core/contracts/FixedPoint.sol",
+        "file": "./FixedPoint.sol",
+        "id": 3424,
+        "nodeType": "ImportDirective",
+        "scope": 3454,
+        "sourceUnit": 1241,
+        "src": "116:26:22",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": "@title Interface that allows derivative contracts to pay oracle fees for their use of the system.",
+        "fullyImplemented": false,
+        "id": 3453,
+        "linearizedBaseContracts": [
+          3453
+        ],
+        "name": "StoreInterface",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": "@dev Pays Oracle fees in ETH to the store. To be used by contracts whose margin currency is ETH.",
+            "id": 3427,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "payOracleFees",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3425,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "429:2:22"
+            },
+            "returnParameters": {
+              "id": 3426,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "448:0:22"
+            },
+            "scope": 3453,
+            "src": "407:42:22",
+            "stateMutability": "payable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@dev Pays oracle fees in the margin currency, erc20Address, to the store. To be used if the margin\ncurrency is an ERC20 token rather than ETH> All approved tokens are transfered.",
+            "id": 3432,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "payOracleFeesErc20",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3430,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3429,
+                  "name": "erc20Address",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3432,
+                  "src": "692:20:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3428,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "692:7:22",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "691:22:22"
+            },
+            "returnParameters": {
+              "id": 3431,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "722:0:22"
+            },
+            "scope": 3453,
+            "src": "664:59:22",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@dev Computes the regular oracle fees that a contract should pay for a period. \npfc` is the \"profit from corruption\", or the maximum amount of margin currency that a\ntoken sponsor could extract from the contract through corrupting the price feed\nin their favor.",
+            "id": 3445,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "computeRegularFee",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3439,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3434,
+                  "name": "startTime",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3445,
+                  "src": "1063:14:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3433,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1063:4:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3436,
+                  "name": "endTime",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3445,
+                  "src": "1079:12:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3435,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1079:4:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3438,
+                  "name": "pfc",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3445,
+                  "src": "1093:32:22",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Unsigned_$896_calldata_ptr",
+                    "typeString": "struct FixedPoint.Unsigned"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 3437,
+                    "name": "FixedPoint.Unsigned",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 896,
+                    "src": "1093:19:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Unsigned_$896_storage_ptr",
+                      "typeString": "struct FixedPoint.Unsigned"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1062:64:22"
+            },
+            "returnParameters": {
+              "id": 3444,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3441,
+                  "name": "regularFee",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3445,
+                  "src": "1155:37:22",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Unsigned_$896_memory_ptr",
+                    "typeString": "struct FixedPoint.Unsigned"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 3440,
+                    "name": "FixedPoint.Unsigned",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 896,
+                    "src": "1155:19:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Unsigned_$896_storage_ptr",
+                      "typeString": "struct FixedPoint.Unsigned"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3443,
+                  "name": "latePenalty",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3445,
+                  "src": "1194:38:22",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Unsigned_$896_memory_ptr",
+                    "typeString": "struct FixedPoint.Unsigned"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 3442,
+                    "name": "FixedPoint.Unsigned",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 896,
+                    "src": "1194:19:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Unsigned_$896_storage_ptr",
+                      "typeString": "struct FixedPoint.Unsigned"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1154:79:22"
+            },
+            "scope": 3453,
+            "src": "1036:198:22",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@dev Computes the final oracle fees that a contract should pay at settlement.",
+            "id": 3452,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "computeFinalFee",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3448,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3447,
+                  "name": "currency",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3452,
+                  "src": "1370:16:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3446,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1370:7:22",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1369:18:22"
+            },
+            "returnParameters": {
+              "id": 3451,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3450,
+                  "name": "finalFee",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3452,
+                  "src": "1411:35:22",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Unsigned_$896_memory_ptr",
+                    "typeString": "struct FixedPoint.Unsigned"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 3449,
+                    "name": "FixedPoint.Unsigned",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 896,
+                    "src": "1411:19:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Unsigned_$896_storage_ptr",
+                      "typeString": "struct FixedPoint.Unsigned"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1410:37:22"
+            },
+            "scope": 3453,
+            "src": "1345:103:22",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 3454,
+        "src": "254:1196:22"
+      }
+    ],
+    "src": "0:1451:22"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/ptare/protocol/core/contracts/StoreInterface.sol",
+    "exportedSymbols": {
+      "StoreInterface": [
+        3453
+      ]
+    },
+    "id": 3454,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 3421,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:22"
+      },
+      {
+        "id": 3422,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "24:33:22"
+      },
+      {
+        "absolutePath": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "file": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "id": 3423,
+        "nodeType": "ImportDirective",
+        "scope": 3454,
+        "sourceUnit": 12763,
+        "src": "59:56:22",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/ptare/protocol/core/contracts/FixedPoint.sol",
+        "file": "./FixedPoint.sol",
+        "id": 3424,
+        "nodeType": "ImportDirective",
+        "scope": 3454,
+        "sourceUnit": 1241,
+        "src": "116:26:22",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": "@title Interface that allows derivative contracts to pay oracle fees for their use of the system.",
+        "fullyImplemented": false,
+        "id": 3453,
+        "linearizedBaseContracts": [
+          3453
+        ],
+        "name": "StoreInterface",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": "@dev Pays Oracle fees in ETH to the store. To be used by contracts whose margin currency is ETH.",
+            "id": 3427,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "payOracleFees",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3425,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "429:2:22"
+            },
+            "returnParameters": {
+              "id": 3426,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "448:0:22"
+            },
+            "scope": 3453,
+            "src": "407:42:22",
+            "stateMutability": "payable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@dev Pays oracle fees in the margin currency, erc20Address, to the store. To be used if the margin\ncurrency is an ERC20 token rather than ETH> All approved tokens are transfered.",
+            "id": 3432,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "payOracleFeesErc20",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3430,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3429,
+                  "name": "erc20Address",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3432,
+                  "src": "692:20:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3428,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "692:7:22",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "691:22:22"
+            },
+            "returnParameters": {
+              "id": 3431,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "722:0:22"
+            },
+            "scope": 3453,
+            "src": "664:59:22",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@dev Computes the regular oracle fees that a contract should pay for a period. \npfc` is the \"profit from corruption\", or the maximum amount of margin currency that a\ntoken sponsor could extract from the contract through corrupting the price feed\nin their favor.",
+            "id": 3445,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "computeRegularFee",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3439,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3434,
+                  "name": "startTime",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3445,
+                  "src": "1063:14:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3433,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1063:4:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3436,
+                  "name": "endTime",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3445,
+                  "src": "1079:12:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3435,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1079:4:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3438,
+                  "name": "pfc",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3445,
+                  "src": "1093:32:22",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Unsigned_$896_calldata_ptr",
+                    "typeString": "struct FixedPoint.Unsigned"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 3437,
+                    "name": "FixedPoint.Unsigned",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 896,
+                    "src": "1093:19:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Unsigned_$896_storage_ptr",
+                      "typeString": "struct FixedPoint.Unsigned"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1062:64:22"
+            },
+            "returnParameters": {
+              "id": 3444,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3441,
+                  "name": "regularFee",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3445,
+                  "src": "1155:37:22",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Unsigned_$896_memory_ptr",
+                    "typeString": "struct FixedPoint.Unsigned"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 3440,
+                    "name": "FixedPoint.Unsigned",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 896,
+                    "src": "1155:19:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Unsigned_$896_storage_ptr",
+                      "typeString": "struct FixedPoint.Unsigned"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3443,
+                  "name": "latePenalty",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3445,
+                  "src": "1194:38:22",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Unsigned_$896_memory_ptr",
+                    "typeString": "struct FixedPoint.Unsigned"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 3442,
+                    "name": "FixedPoint.Unsigned",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 896,
+                    "src": "1194:19:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Unsigned_$896_storage_ptr",
+                      "typeString": "struct FixedPoint.Unsigned"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1154:79:22"
+            },
+            "scope": 3453,
+            "src": "1036:198:22",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@dev Computes the final oracle fees that a contract should pay at settlement.",
+            "id": 3452,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "computeFinalFee",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3448,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3447,
+                  "name": "currency",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3452,
+                  "src": "1370:16:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3446,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1370:7:22",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1369:18:22"
+            },
+            "returnParameters": {
+              "id": 3451,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3450,
+                  "name": "finalFee",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3452,
+                  "src": "1411:35:22",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Unsigned_$896_memory_ptr",
+                    "typeString": "struct FixedPoint.Unsigned"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 3449,
+                    "name": "FixedPoint.Unsigned",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 896,
+                    "src": "1411:19:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Unsigned_$896_storage_ptr",
+                      "typeString": "struct FixedPoint.Unsigned"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1410:37:22"
+            },
+            "scope": 3453,
+            "src": "1345:103:22",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 3454,
+        "src": "254:1196:22"
+      }
+    ],
+    "src": "0:1451:22"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.13+commit.5b0b510c.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.19",
+  "updatedAt": "2019-12-19T23:40:36.389Z",
+  "devdoc": {
+    "methods": {
+      "computeFinalFee(address)": {
+        "details": "Computes the final oracle fees that a contract should pay at settlement."
+      },
+      "computeRegularFee(uint256,uint256,(uint256))": {
+        "details": "Computes the regular oracle fees that a contract should pay for a period.  pfc` is the \"profit from corruption\", or the maximum amount of margin currency that a token sponsor could extract from the contract through corrupting the price feed in their favor."
+      },
+      "payOracleFees()": {
+        "details": "Pays Oracle fees in ETH to the store. To be used by contracts whose margin currency is ETH."
+      },
+      "payOracleFeesErc20(address)": {
+        "details": "Pays oracle fees in the margin currency, erc20Address, to the store. To be used if the margin currency is an ERC20 token rather than ETH> All approved tokens are transfered."
+      }
+    },
+    "title": "Interface that allows derivative contracts to pay oracle fees for their use of the system."
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

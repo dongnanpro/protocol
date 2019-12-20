@@ -1,0 +1,880 @@
+{
+  "contractName": "RegistryInterface",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "counterparties",
+          "type": "address[]"
+        },
+        {
+          "internalType": "address",
+          "name": "derivativeAddress",
+          "type": "address"
+        }
+      ],
+      "name": "registerDerivative",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "derivative",
+          "type": "address"
+        }
+      ],
+      "name": "isDerivativeRegistered",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "isRegistered",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "party",
+          "type": "address"
+        }
+      ],
+      "name": "getRegisteredDerivatives",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "derivatives",
+          "type": "address[]"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getAllRegisteredDerivatives",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "derivatives",
+          "type": "address[]"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.13+commit.5b0b510c\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[],\"name\":\"getAllRegisteredDerivatives\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"derivatives\",\"type\":\"address[]\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"party\",\"type\":\"address\"}],\"name\":\"getRegisteredDerivatives\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"derivatives\",\"type\":\"address[]\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"derivative\",\"type\":\"address\"}],\"name\":\"isDerivativeRegistered\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"isRegistered\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"counterparties\",\"type\":\"address[]\"},{\"internalType\":\"address\",\"name\":\"derivativeAddress\",\"type\":\"address\"}],\"name\":\"registerDerivative\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{\"getAllRegisteredDerivatives()\":{\"details\":\"Returns all registered derivatives.\"},\"getRegisteredDerivatives(address)\":{\"details\":\"Returns a list of all derivatives that are associated with a particular party.\"},\"isDerivativeRegistered(address)\":{\"details\":\"Returns whether the derivative has been registered with the registry (and is therefore an authorized. participant in the UMA system).\"},\"registerDerivative(address[],address)\":{\"details\":\"Registers a new derivative. Only authorized derivative creators can call this method.\"}},\"title\":\"Interface for a registry of derivatives and derivative creators.\"},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/ptare/protocol/core/contracts/RegistryInterface.sol\":\"RegistryInterface\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/ptare/protocol/core/contracts/RegistryInterface.sol\":{\"keccak256\":\"0x301484ff6601b8523092620d94452aab1e1d51dcba8e4bf941865a26d0d8c41d\",\"urls\":[\"bzz-raw://e7f04a939af0f675dca90b1a47e048346553e666c78cd20d23bfdadab5c682ab\",\"dweb:/ipfs/QmT3dQvWqMWoPkasvrqTegZPRVQtKsFzy2j7MusDtDm2Ag\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.5.0;\n\npragma experimental ABIEncoderV2;\n\n\n/**\n * @title Interface for a registry of derivatives and derivative creators.\n */\ninterface RegistryInterface {\n    /**\n     * @dev Registers a new derivative. Only authorized derivative creators can call this method.\n     */\n    function registerDerivative(address[] calldata counterparties, address derivativeAddress) external;\n\n    /**\n     * @dev Returns whether the derivative has been registered with the registry (and is therefore an authorized.\n     * participant in the UMA system).\n     */\n    function isDerivativeRegistered(address derivative) external view returns (bool isRegistered);\n\n    /**\n     * @dev Returns a list of all derivatives that are associated with a particular party.\n     */\n    function getRegisteredDerivatives(address party) external view returns (address[] memory derivatives);\n\n    /**\n     * @dev Returns all registered derivatives.\n     */\n    function getAllRegisteredDerivatives() external view returns (address[] memory derivatives);\n}\n",
+  "sourcePath": "/Users/ptare/protocol/core/contracts/RegistryInterface.sol",
+  "ast": {
+    "absolutePath": "/Users/ptare/protocol/core/contracts/RegistryInterface.sol",
+    "exportedSymbols": {
+      "RegistryInterface": [
+        2987
+      ]
+    },
+    "id": 2988,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2956,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:18"
+      },
+      {
+        "id": 2957,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "25:33:18"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": "@title Interface for a registry of derivatives and derivative creators.",
+        "fullyImplemented": false,
+        "id": 2987,
+        "linearizedBaseContracts": [
+          2987
+        ],
+        "name": "RegistryInterface",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": "@dev Registers a new derivative. Only authorized derivative creators can call this method.",
+            "id": 2965,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "registerDerivative",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2963,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2960,
+                  "name": "counterparties",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2965,
+                  "src": "320:33:18",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_calldata_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2958,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "320:7:18",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 2959,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "320:9:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2962,
+                  "name": "derivativeAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2965,
+                  "src": "355:25:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2961,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "355:7:18",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "319:62:18"
+            },
+            "returnParameters": {
+              "id": 2964,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "390:0:18"
+            },
+            "scope": 2987,
+            "src": "292:99:18",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@dev Returns whether the derivative has been registered with the registry (and is therefore an authorized.\nparticipant in the UMA system).",
+            "id": 2972,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isDerivativeRegistered",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2968,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2967,
+                  "name": "derivative",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2972,
+                  "src": "598:18:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2966,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "598:7:18",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "597:20:18"
+            },
+            "returnParameters": {
+              "id": 2971,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2970,
+                  "name": "isRegistered",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2972,
+                  "src": "641:17:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 2969,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "641:4:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "640:19:18"
+            },
+            "scope": 2987,
+            "src": "566:94:18",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@dev Returns a list of all derivatives that are associated with a particular party.",
+            "id": 2980,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getRegisteredDerivatives",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2975,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2974,
+                  "name": "party",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2980,
+                  "src": "807:13:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2973,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "807:7:18",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "806:15:18"
+            },
+            "returnParameters": {
+              "id": 2979,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2978,
+                  "name": "derivatives",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2980,
+                  "src": "845:28:18",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2976,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "845:7:18",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 2977,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "845:9:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "844:30:18"
+            },
+            "scope": 2987,
+            "src": "773:102:18",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@dev Returns all registered derivatives.",
+            "id": 2986,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getAllRegisteredDerivatives",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2981,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "981:2:18"
+            },
+            "returnParameters": {
+              "id": 2985,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2984,
+                  "name": "derivatives",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2986,
+                  "src": "1007:28:18",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2982,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1007:7:18",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 2983,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1007:9:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1006:30:18"
+            },
+            "scope": 2987,
+            "src": "945:92:18",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 2988,
+        "src": "144:895:18"
+      }
+    ],
+    "src": "0:1040:18"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/ptare/protocol/core/contracts/RegistryInterface.sol",
+    "exportedSymbols": {
+      "RegistryInterface": [
+        2987
+      ]
+    },
+    "id": 2988,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2956,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:18"
+      },
+      {
+        "id": 2957,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "25:33:18"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": "@title Interface for a registry of derivatives and derivative creators.",
+        "fullyImplemented": false,
+        "id": 2987,
+        "linearizedBaseContracts": [
+          2987
+        ],
+        "name": "RegistryInterface",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": "@dev Registers a new derivative. Only authorized derivative creators can call this method.",
+            "id": 2965,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "registerDerivative",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2963,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2960,
+                  "name": "counterparties",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2965,
+                  "src": "320:33:18",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_calldata_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2958,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "320:7:18",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 2959,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "320:9:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2962,
+                  "name": "derivativeAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2965,
+                  "src": "355:25:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2961,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "355:7:18",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "319:62:18"
+            },
+            "returnParameters": {
+              "id": 2964,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "390:0:18"
+            },
+            "scope": 2987,
+            "src": "292:99:18",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@dev Returns whether the derivative has been registered with the registry (and is therefore an authorized.\nparticipant in the UMA system).",
+            "id": 2972,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isDerivativeRegistered",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2968,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2967,
+                  "name": "derivative",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2972,
+                  "src": "598:18:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2966,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "598:7:18",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "597:20:18"
+            },
+            "returnParameters": {
+              "id": 2971,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2970,
+                  "name": "isRegistered",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2972,
+                  "src": "641:17:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 2969,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "641:4:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "640:19:18"
+            },
+            "scope": 2987,
+            "src": "566:94:18",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@dev Returns a list of all derivatives that are associated with a particular party.",
+            "id": 2980,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getRegisteredDerivatives",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2975,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2974,
+                  "name": "party",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2980,
+                  "src": "807:13:18",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2973,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "807:7:18",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "806:15:18"
+            },
+            "returnParameters": {
+              "id": 2979,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2978,
+                  "name": "derivatives",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2980,
+                  "src": "845:28:18",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2976,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "845:7:18",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 2977,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "845:9:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "844:30:18"
+            },
+            "scope": 2987,
+            "src": "773:102:18",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@dev Returns all registered derivatives.",
+            "id": 2986,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getAllRegisteredDerivatives",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2981,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "981:2:18"
+            },
+            "returnParameters": {
+              "id": 2985,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2984,
+                  "name": "derivatives",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2986,
+                  "src": "1007:28:18",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2982,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1007:7:18",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 2983,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1007:9:18",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1006:30:18"
+            },
+            "scope": 2987,
+            "src": "945:92:18",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 2988,
+        "src": "144:895:18"
+      }
+    ],
+    "src": "0:1040:18"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.13+commit.5b0b510c.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.19",
+  "updatedAt": "2019-12-19T23:40:36.385Z",
+  "devdoc": {
+    "methods": {
+      "getAllRegisteredDerivatives()": {
+        "details": "Returns all registered derivatives."
+      },
+      "getRegisteredDerivatives(address)": {
+        "details": "Returns a list of all derivatives that are associated with a particular party."
+      },
+      "isDerivativeRegistered(address)": {
+        "details": "Returns whether the derivative has been registered with the registry (and is therefore an authorized. participant in the UMA system)."
+      },
+      "registerDerivative(address[],address)": {
+        "details": "Registers a new derivative. Only authorized derivative creators can call this method."
+      }
+    },
+    "title": "Interface for a registry of derivatives and derivative creators."
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

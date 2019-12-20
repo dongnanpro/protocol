@@ -128,10 +128,13 @@ function ActiveRequests({ votingAccount, votingGateway }) {
       }
       const currentVotes = await Promise.all(
         voteStatuses.map(async (voteStatus, index) => {
+              console.log("RETRIEVED ENCRYPTED:", voteStatus.committedValue);
           if (voteStatus.committedValue) {
-            return JSON.parse(
-              await decryptMessage(decryptionKeys[account][currentRoundId].privateKey, voteStatus.committedValue)
-            );
+              console.log("RETRIEVED ENCRYPTED:", voteStatus.committedValue);
+              const decyprtd = await decryptMessage(decryptionKeys[account][currentRoundId].privateKey, voteStatus.committedValue);
+              console.log("RETRIEVED DECRYPTED:", decyprtd);
+              console.log("RETRIEVED atob:", atob(decyprtd));
+                return JSON.parse(atob(decyprtd));
           } else {
             return "";
           }
@@ -177,12 +180,16 @@ function ActiveRequests({ votingAccount, votingGateway }) {
       if (!checkboxesChecked[index] || !editState[index]) {
         continue;
       }
-      const price = web3.utils.toWei(editState[index]);
-      const salt = web3.utils.toBN(web3.utils.randomHex(32));
+      const price = web3.utils.toWei(editState[index]).toString();
+      const salt = web3.utils.toBN(web3.utils.randomHex(32)).toString();
+        console.log("PRICE,SALT:", price, salt);
+        const message = btoa(JSON.stringify({ price, salt }));
+        console.log("CLEARTEXT MESSAGE:", message);
       const encryptedVote = await encryptMessage(
         decryptionKeys[account][currentRoundId].publicKey,
-        JSON.stringify({ price, salt })
+          message
       );
+        console.log("ENCRYPTED VOTE:", encryptedVote);
       commits.push({
         identifier: pendingRequests[index].identifier,
         time: pendingRequests[index].time,

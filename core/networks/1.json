@@ -1,0 +1,38 @@
+[
+  {
+    "contractName": "Migrations",
+    "address": "0x43d0473A0bFb65F39142AEF13a640D646E435991"
+  },
+  {
+    "contractName": "Finder",
+    "address": "0xc25096B54Cd850Ee8a849E8BDC964Ec412175406"
+  },
+  {
+    "contractName": "VotingToken",
+    "address": "0x33caBDe4527fcb4bBB1ea9909BF93D41c98Cfa3c"
+  },
+  {
+    "contractName": "Voting",
+    "address": "0x6523baA2d53B24C96cf72867b2E8251B5dDBA478"
+  },
+  {
+    "contractName": "Registry",
+    "address": "0x633159Bf4d33106697DE4601a1870C973e74BE02"
+  },
+  {
+    "contractName": "FinancialContractsAdmin",
+    "address": "0x84A3076031fcdF12E95514149408326e303a9f4f"
+  },
+  {
+    "contractName": "Store",
+    "address": "0xe07533c961032a182fA46F9B8FA9a03Dc9b5d7eF"
+  },
+  {
+    "contractName": "Governor",
+    "address": "0x9F3D032f795ba5C8b4bF4437b0F0CBE52d66F549"
+  },
+  {
+    "contractName": "DesignatedVotingFactory",
+    "address": "0x7bDD67230A942Bd890C89417b5716b415874f851"
+  }
+]
